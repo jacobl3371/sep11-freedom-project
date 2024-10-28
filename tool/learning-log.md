@@ -5,7 +5,7 @@
 ## Project: **Self translating immigration website**
 
 
-10/21/2024
+*10/21/2024*
 
 We decided to use Node with Express JS to build our website which acquires the user's IP address and automatically translates the webpage based on their detected region.
 
@@ -54,4 +54,12 @@ app.get('/', (req, res) => {
 This is the most basic starter code in tinker.js to make the express js web api begin listening to requests made by the server. From there any changes made could be tested by going to that port in your local browser where the request in your code is being made to.
 
 
+*10/28/2024*
 
+I decided to set up express.js in my cs50 IDE for efficiency. I created a folder named ```tool-tinker2``` and followed the express.js documentation to set up a package.json file in that directory using ```npm init```.
+
+I set up the "hello world" app from the express documentation in my index.js file and changed "hello world" to "tool tinker" and the console.log message to "tool tinker app".
+
+I ran the app with ```node index.js``` and my terminal retrieving the message, ```Tool tinker app 3000``` since the anme of the port is 3000.
+
+I now fully understand how to set up an express app in cs50 or any development environment and run a simple app.
