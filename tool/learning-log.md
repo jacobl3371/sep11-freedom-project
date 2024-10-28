@@ -60,6 +60,6 @@ I decided to set up express.js in my cs50 IDE for efficiency. I created a folder
 
 I set up the "hello world" app from the express documentation in my index.js file and changed "hello world" to "tool tinker" and the console.log message to "tool tinker app".
 
-I ran the app with ```node index.js``` and my terminal retrieving the message, ```Tool tinker app 3000``` since the anme of the port is 3000.
+I ran the app with ```node index.js``` and my terminal retrieving the message, ```Tool tinker app 3000``` since it is referring to port 3000.
 
 I now fully understand how to set up an express app in cs50 or any development environment and run a simple app.
