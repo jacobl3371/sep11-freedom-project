@@ -60,6 +60,45 @@ I decided to set up express.js in my cs50 IDE for efficiency. I created a folder
 
 I set up the "hello world" app from the express documentation in my index.js file and changed "hello world" to "tool tinker" and the console.log message to "tool tinker app".
 
-I ran the app with ```node index.js``` and my terminal retrieving the message, ```Tool tinker app 3000``` since it is referring to port 3000.
+I ran the app with ```node index.js``` and my terminal retrieved the message, ```Tool tinker app 3000``` since it is referring to port 3000.
 
 I now fully understand how to set up an express app in cs50 or any development environment and run a simple app.
+
+
+*11/4/2024*
+
+I followed the [Express static files guide](https://expressjs.com/en/starter/static-files.html) and tried to change some of the files that would be served to the user.
+
+I inputted the code
+
+```js
+express.static(root, [options])
+```
+
+into my index.js Express application and with this code
+
+```js
+app.use(express.static('public'))
+```
+
+I changed "public" to "temp", the directory in which I had my staic files that I wanted to serve.
+
+When trying to run my index.js app I got error:
+
+```
+express.static(root, [options])
+               ^
+
+ReferenceError: root is not defined
+```
+
+I tried to change ```root``` to my workspaces directory, but then the terminal just retreived the message that "workspaces is not defined".
+
+```
+express.static(workspaces/js/projects/sep11-freedom-project/tool/tool-tinker2/ [options])
+               ^
+
+ReferenceError: workspaces is not defined
+```
+
+I still have to figure out this issue.
