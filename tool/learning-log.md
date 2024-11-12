@@ -5,9 +5,10 @@
 ## Project: **Self translating immigration website**
 
 
+
 *10/21/2024*
 
-We decided to use Node with Express JS to build our website which acquires the user's IP address and automatically translates the webpage based on their detected region.
+We decided to use Node with Express JS to build our website which acquires the user's IP address and automatically serves the webpage content in a diferent language based on their detected region.
 
 ### Setting up Node with Express:
 
@@ -54,6 +55,9 @@ app.get('/', (req, res) => {
 This is the most basic starter code in tinker.js to make the express js web api begin listening to requests made by the server. From there any changes made could be tested by going to that port in your local browser where the request in your code is being made to.
 
 
+
+-----------------------------------------------------------------------------------
+
 *10/28/2024*
 
 I decided to set up express.js in my cs50 IDE for efficiency. I created a folder named ```tool-tinker2``` and followed the express.js documentation to set up a package.json file in that directory using ```npm init```.
@@ -64,6 +68,9 @@ I ran the app with ```node index.js``` and my terminal retrieved the message, ``
 
 I now fully understand how to set up an express app in cs50 or any development environment and run a simple app.
 
+
+
+-----------------------------------------------------------------------------------
 
 *11/4/2024*
 
@@ -102,3 +109,61 @@ ReferenceError: workspaces is not defined
 ```
 
 I still have to figure out this issue.
+
+
+
+-----------------------------------------------------------------------------------
+
+*11/12/2024*
+
+I followed the [medium.com guide](https://medium.com/weekly-webtips/nodejs-internationalization-simplified-serve-one-web-page-in-multiple-languages-with-pagepress-f8e2640682cf) to make my express app have multilanguage routes using pagepress.
+
+I set up the "Hello World!" page-press language router file itself in the frontend folder and put all of the server logic inside the express index.js file in the backend directory.
+
+I used the placeholder method in PagePress to have the same placeholder ```@greetText``` be assigned to the word for "Hello" in different langauges, having PagePress look for the the text in the language of the according placeholder/value bindings
+
+```js
+{
+    "en":{
+        "@greetText":"Hello!"
+    },
+    "si":{
+        "@greetText":"ආයුබෝවන්"
+    }
+}
+```
+
+I added a value for the Spanish language
+
+```js
+{
+    "en":{
+        "@greetText":"Hello!"
+    },
+    "si":{
+        "@greetText":"ආයුබෝවන්"
+    }
+    "es":{
+        "@greetTest":"¡Hola!"
+    }
+}
+```
+
+And I of course had to update my index.js file with the homepage request route for Spanish.
+
+```js
+// Spanish home page request
+app.get('/es', (req, res) => {
+
+    // render new page from index.html
+    res.render(
+        __dirname + '/index.html', // template
+        {},                        // no placeholder bindings
+        'es'                       // language code
+    )
+
+})
+```
+
+
+++Skills: how to google/research to find the right article for the pagepress setup
