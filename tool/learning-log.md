@@ -8,7 +8,7 @@
 
 *10/21/2024*
 
-We decided to use Node with Express JS to build our website which acquires the user's IP address and automatically serves the webpage content in a diferent language based on their detected region.
+We decided to use Node with Express JS to build our website which acquires the user's IP address and automatically serves the webpage content in a different language according to their detected region.
 
 ### Setting up Node with Express:
 
