@@ -167,3 +167,39 @@ app.get('/es', (req, res) => {
 
 
 ++Skills: how to google/research to find the right article for the pagepress setup
+
+
+
+
+-----------------------------------------------------------------------------------
+
+*12/20/2024*
+
+I remitigated my express app setup to debian in order to test the localhost output by running ```node index.js```.
+
+I compressed my entire tool folder directory stored locally on my machine into a .zip file to transfer to the cs50 Github IDE.
+
+Since localhost didn't work at first I thought it was a problem with Mullvad browser, and then Firefox when I downloaded it to test the local host server, but upon correcting the index.js code to listen to the port assigned to the ```port``` value (3000) by changing this code to have the app listen to the value that port is set to instead of 80, like in the tutorial,
+
+```js
+// start the server
+app.listen(80)
+```
+
+```js
+// start the server
+app.listen(port)
+```
+
+I was able to get the server working and on Mullvad browser, so I don't have to use any different browsers in my setup, which is good.
+
+I changed the Sinalese language route to Chinese since the characters weren't rendering in vs code, and though the Chinese characters registered in vs code, I expereinced a similar with the actual output, which seems to fail to render any non-latin characters.
+
+The English route output looks like this:
+![english text](tool-tinker2/img/en.png)
+
+The Spanish route output like this:
+![spanish text](tool-tinker2/img/es.png)
+
+But then the Chinese route output looks like so:
+![chinese text](tool-tinker2/img/ch.png)

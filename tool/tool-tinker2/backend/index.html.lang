@@ -2,7 +2,10 @@
     "en":{
         "@greetText":"Hello!"
     },
-    "si":{
-        "@greetText":"ආයුබෝවන්"
+    "ch":{
+        "@greetText":"你好"
+    },
+    "es":{
+        "@greetText":"Hola!"
     }
 }

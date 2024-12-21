@@ -2,10 +2,6 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-// create an express server
-const express = require(‘express’)
-const app = express()
-
 // use PagePress template engine
 const pagePress = require('page-press')
 app.use(pagePress)
@@ -23,13 +19,13 @@ app.get('/en', (req, res) => {
 })
 
 // Sinhalese home page request
-app.get('/si', (req, res) => {
+app.get('/ch', (req, res) => {
 
     // render new page from index.html
     res.render(
         __dirname + '/index.html', // template
         {},                        // no placeholder bindings
-        'si'                       // language code
+        'ch'                       // language code
     )
 
 })
@@ -47,4 +43,4 @@ app.get('/es', (req, res) => {
 })
 
 // start the server
-app.listen(80)
+app.listen(port)
