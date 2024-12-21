@@ -193,7 +193,7 @@ app.listen(port)
 
 I was able to get the server working and on Mullvad browser, so I don't have to use any different browsers in my setup, which is good.
 
-I changed the Sinalese language route to Chinese since the characters weren't rendering in vs code, and though the Chinese characters registered in vs code, I expereinced a similar with the actual output, which seems to fail to render any non-latin characters.
+I changed the Sinalese language route to Chinese since the characters weren't rendering in vs code, and though the Chinese characters registered in vs code, I experienced a similar issue with the actual output, which seems to fail to render any non-latin characters.
 
 The English route output looks like this:
 ![english text](tool-tinker2/img/en.png)
