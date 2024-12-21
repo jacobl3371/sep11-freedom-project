@@ -1,0 +1,11 @@
+{
+    "en":{
+        "@greetText":"Hello!"
+    },
+    "ch":{
+        "@greetText":"你好"
+    },
+    "es":{
+        "@greetText":"Hola!"
+    }
+}
