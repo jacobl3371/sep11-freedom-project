@@ -177,6 +177,7 @@ app.get('/es', (req, res) => {
 
 I remitigated my express app setup to debian in order to test the localhost output by running ```node index.js```.
 
+
 I compressed my entire tool folder directory stored locally on my machine into a .zip file to transfer to the cs50 Github IDE.
 
 Since localhost didn't work at first I thought it was a problem with Mullvad browser, and then Firefox when I downloaded it to test the local host server, but upon correcting the index.js code to listen to the port assigned to the ```port``` value (3000) by changing this code to have the app listen to the value that port is set to instead of 80, like in the tutorial,
@@ -193,7 +194,7 @@ app.listen(port)
 
 I was able to get the server working and on Mullvad browser, so I don't have to use any different browsers in my setup, which is good.
 
-I changed the Sinalese language route to Chinese since the characters weren't rendering in vs code, and though the Chinese characters registered in vs code, I experienced a similar issue with the actual output, which seems to fail to render any non-latin characters.
+I changed the Sinalese language route to Chinese since the characters weren't rendering in vs code, and though the Chinese characters registered in vs code, I expereinced a similar with the actual output, which seems to fail to render any non-latin characters.
 
 The English route output looks like this:
 ![english text](tool-tinker2/img/en.png)
@@ -203,3 +204,41 @@ The Spanish route output like this:
 
 But then the Chinese route output looks like so:
 ![chinese text](tool-tinker2/img/ch.png)
+
+
+
+-----------------------------------------------------------------------------------
+
+*1/13/2025*
+
+I watched [this video](https://youtu.be/-MTSQjw5DrM?si=yi0hcy4zIXHYarTp) on REST APIs and learned how to configure a post request like so
+
+```js
+app.post('/lang/:region/', (req, res) => {
+
+    const { region } = req.params
+    const { language } = req.body
+
+    if (!language) {
+        return res.status(418).send({ message: "No language inputted" })
+    }
+
+    res.send({
+        language: `${language}`, region: `${region}`,
+    })
+
+})
+```
+
+Which allows the user to input the language to be set via a post request which replaces the language value with the user's inputted language when the post request is sent
+
+![alt text](<Screenshot from 2025-01-13 06-38-37.png>)
+
+And for the URL for the Netherlands-region version of the website, the corresponding language to be set by the post request would be Dutch.
+
+![alt text](<Screenshot from 2025-01-13 06-49-23.png>)
+
+POST APIs will be an essential part of my application as a POST API end-route will be used in conjunction with a get GET API route to automatically scan for and retreive the user's IP address and then send that data to the POST API end-route
+which will post the content on the webpage in a different language according to the country/region (and subsequent language assigned in a separate variable) which their IP address corresponds to.
+
+Simple 1-dimensional JavaScript objects will used to acheive this static automatic assignment of IP address to region, or perhaps 2d objects can be utilized to assign the language for each given region.
