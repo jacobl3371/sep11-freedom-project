@@ -238,7 +238,7 @@ And for the URL for the Netherlands-region version of the website, the correspon
 
 ![alt text](<Screenshot from 2025-01-13 06-49-23.png>)
 
-POST APIs will be an essential part of my application as a POST API end-route will be used in conjunction with a get GET API route to automatically scan for and retreive the user's IP address and then send that data to the POST API end-route
+POST APIs will be an essential part of my application as a POST API end-route will be used in conjunction with a get GET API route to automatically scan for and retrieve the user's IP address and then send that data to the POST API end-route
 which will post the content on the webpage in a different language according to the country/region (and subsequent language assigned in a separate variable) which their IP address corresponds to.
 
 Simple 1-dimensional JavaScript objects will used to acheive this static automatic assignment of IP address to region, or perhaps 2d objects can be utilized to assign the language for each given region.
