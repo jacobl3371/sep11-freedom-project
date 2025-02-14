@@ -25,9 +25,9 @@
 
 ### Beyond MVP
 
-- [ ] Create a authentication page (Caleb)
-- [ ] Design a fake database (Caleb)
-- [ ] Translate into more niche languages like arabic and norwigian (Jacob)
+- [ ] Create a authentication page (Caleb) (4/3)
+- [ ] Design a fake database (Caleb) (4/3)
+- [ ] Translate into more niche languages like arabic and norwigian (Jacob) (4/3)
 
 
 
