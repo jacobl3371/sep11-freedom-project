@@ -242,3 +242,74 @@ POST APIs will be an essential part of my application as a POST API end-route wi
 which will post the content on the webpage in a different language according to the country/region (and subsequent language assigned in a separate variable) which their IP address corresponds to.
 
 Simple 1-dimensional JavaScript objects will used to acheive this static automatic assignment of IP address to region, or perhaps 2d objects can be utilized to assign the language for each given region.
+
+
+
+-----------------------------------------------------------------------------------
+
+*3/9/2025*
+
+* I scrapped my temporary pagepress language route setup in (most likely permanent) favor of one that *just* uses the i18n-internationalization dependancy which I installed to the new express-app directory within my tool folder by running:
+
+```bash
+npm install i18n-next
+```
+
+and 
+
+```bash
+npm install i18n-next-http-middleware
+```
+
+Which generated a package.json file in the ip-immigration app directory that looks like so:
+
+```js
+{
+  "dependencies": {
+    "express": "^4.21.2",
+    "i18next": "^24.2.2",
+    "i18next-http-middleware": "^3.7.1"
+  },
+  "name": "ip-immigration-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+}
+```
+containing the subsequent internationalization and internationalization-middleware dependancies.
+
+* middleware: code that runs between the time the request is received by the server and it sends out a response to the client
+    * https://www.youtube.com/watch?v=lY6icfhap2o
+
+* Then I had to import all of the dependancies from the package.json file, 
+
+```js
+import express from "express"
+import i18next from "i18next"
+import middleware from "i18next-http-middleware"
+import fs from "fs"
+import path from "path"
+import { fileURLToPath } from "url"
+```
+
+Select and store my index.js file for my backend API in a variable named ```__filename```,
+
+```js
+const __filename = fileURLToPath(import.meta.url);
+```
+
+store the directory-path to the index.js file assigned to it's respetive variable in another variable (```__dirname```),
+
+```js
+const __dirname = path.dirname(__filename);
+```
+
+and then create a ```localesDir``` variable which stores the combined path of the directory (```__dirname```) and the locales directory within the same backend folder that has each language.json file (i.e: de.json, en.json...) which dynamically sets the countryCode paramter of the geoLocation paramter (stored for readability within the ``data`` variable later in the code) of the ```req``` object to a different region, middleware allowing for that code to be run *before* the server sends the client back a response (```res```), which subsequently alters the request so that the corresponsing response is sent back to the user depending on the data being used to alter the request, which in this case, though for now only simulated with a manually inputted ip-address, depends on data derived from the user when they **request** the web application from the server upon their computer trying to fetch and load the data from the website.
+
+
+
