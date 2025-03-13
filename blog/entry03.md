@@ -163,7 +163,7 @@ if (!response.ok) {
 }
 ```
 
-Which checks if the response, (the user's ip address), is ok, meaning that the get request worked and the object returned with an ok status (200-299) whereas this response is intended to be triggered if there is an error getting the ```req``` object which stores the user's ip address, either a client side error (400-499) or server side error, in the case that the freeipapi website's ervers were down (500-599).
+Which checks if the response, (the user's ip address), is ok, meaning that the get request worked and the object returned with an ok status (200-299) whereas this response is intended to be triggered if there is an error getting the ```req``` object which stores the user's ip address, either a client side error (400-499) or server side error, in the case that the freeipapi website's servers were down (500-599).
 
 The next step is to store the response variable with the freeipapi.com API in a separate variable (data) which converts response to JavaScript Object Notation (JSON).
 
