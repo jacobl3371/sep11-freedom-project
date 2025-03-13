@@ -13,7 +13,7 @@ and
 npm install i18n-next-http-middleware
 ```
 
-This automatically setup my app repository --which already had node dependancies which later allowed for express dependancies which depended on node to be installed-- with all of the required dependancies within the package.json file for the internationalization feature to work.
+This automatically setup my app repository --which already had node dependencies which later allowed for express dependencies which depended on node to be installed-- with all of the required dependencies within the package.json file for the internationalization feature to work.
 
 ```json
 {
@@ -34,9 +34,9 @@ This automatically setup my app repository --which already had node dependancies
 }
 ```
 
-I learned how to utilize [middleware](https://www.youtube.com/watch?v=lY6icfhap2o) in my express app, which is just any code that runs between the time the request is received by the server and the time the server sends out a response to the client, allowing the request and, in most cases, interdependantly, the response, to be altered in that period of time.
+I learned how to utilize [middleware](https://www.youtube.com/watch?v=lY6icfhap2o) in my express app, which is just any code that runs between the time the request is received by the server and the time the server sends out a response to the client, allowing the request and, in most cases, interdependently, the response, to be altered in that period of time.
 
-After that I had to import all of the dependancies from the package.json file into my index.js app file,
+After that I had to import all of the dependencies from the package.json file into my index.js app file,
 
 ```js
 import express from "express"
@@ -52,31 +52,31 @@ Select and store my index.js file for my backend API in a variable named ```__fi
 const __filename = fileURLToPath(import.meta.url)
 ```
 
-store the directory-path to the index.js file assigned to it's respetive variable in another variable (```__dirname```),
+store the directory-path to the index.js file assigned to its respective variable in another variable (```__dirname```),
 
 ```js
 const __dirname = path.dirname(__filename)
 ```
 
-and then create a ```localesDir``` variable which stores the combined path of the directory (__dirname) and the locales directory within the same backend folder that has each language.json file (i.e: de.json, en.json...) which dynamically sets the countryCode parameter of the geoLocation parameter (stored for readability within the ```data``` variable later in the code) of the ```req``` object to a different region, middleware allowing for that code to be run before the server sends the client back a response (```res```), which subsequently alters the request so that the corresponsing response is sent back to the user depending on the data being used to alter the request, which in this case, though for now only simulated with a manually inputted ip-address, depends on data derived from the user when they request the web application from the server upon their computer trying to fetch and load the data from the website.
+and then create a ```localesDir``` variable which stores the combined path of the directory (__dirname) and the locales directory within the same backend folder that has each language.json file (i.e: de.json, en.json...) which dynamically sets the countryCode parameter of the geoLocation parameter (stored for readability within the ```data``` variable later in the code) of the ```req``` object to a different region, middleware allowing for that code to be run before the server sends the client back a response (```res```), which subsequently alters the request so that the corresponding response is sent back to the user depending on the data being used to alter the request, which in this case, though for now only simulated with a manually inputted ip-address, depends on data derived from the user when they request the web application from the server upon their computer trying to fetch and load the data from the website.
 
 ```js
 const localesDir = path.join(__dirname, "locales")
 ```
 
-Each corresponding language which the text is ultimately translated to is stored within a JSON (javascript object notation) object-string which is updated to the value of the parameters of the ```req``` object and then retroactively inserted within the html of the file with data updated based on previous functions which derive the translated text from the .json language file to use (en.json, es.json, de.json, etc., etc.,). These file are kept in a ```locales``` directory within the backend directory to be accessible when the application is hosted locally with only the data from the backend directory being accessed and procesed.
+Each corresponding language which the text is ultimately translated to is stored within a JSON (javascript object notation) object-string which is updated to the value of the parameters of the ```req``` object and then retroactively inserted within the html of the file with data updated based on previous functions which derive the translated text from the .json language file to use (en.json, es.json, de.json, etc., etc.,). These files are kept in a ```locales``` directory within the backend directory to be accessible when the application is hosted locally with only the data from the backend directory being accessed and processed.
 
 ![alt text](image-3.png)
 
 I learned about manipulating data in JSON files using Javascript by watching [this video](https://www.youtube.com/watch?v=r4MLHHLctKw). JSON is used to exchange data between applications and servers.
 
-The next step is to declare the app as express *after* the above lines of code to import all of the dependancies and select and join the file-path directories.
+The next step is to declare the app as express *after* the above lines of code to import all of the dependencies and select and join the file-path directories.
 
 ```js
 const app = express()
 ```
 
-Every region must be stored as a value within an array in javascript, which each string value for the language corresponding to the according "locale".json file.
+Every region must be stored as a value within an array in javascript, with each string value for the language corresponding to the according "locale".json file.
 
 ```js
 const languages = ["en", "es", "de"]
@@ -132,7 +132,7 @@ if (ip === "127.0.0.1" || ip === "::1") {
 }
 ```
 
-Then we make a call to the freeipapi.com ip-address JSON API, storing it within the ```apiUrl``` variable which is then stored within the response wariable which fetches ```apiUrl``` and then uses ```await``` to only fetch this data once the other middleware finishes running.
+Then we make a call to the freeipapi.com ip-address JSON API, storing it within the ```apiUrl``` variable which is then stored within the response variable which fetches ```apiUrl``` and then uses ```await``` to only fetch this data once the other middleware finishes running.
 
 ```js
 const apiUrl = `https://freeipapi.com/api/json/${ip}`;
@@ -153,7 +153,7 @@ if (!response.ok) {
 }
 ```
 
-[This video](https://www.youtube.com/watch?v=37vxWr0WgQk) goes over using express js to ```fetch()``` data from API's linked within the parenthesis of the global function. It also thought me how to utilize the ```try``` and ```catch``` blocks within the ```app.use``` ```async/await``` function for my application.
+[This video](https://www.youtube.com/watch?v=37vxWr0WgQk) goes over using express js to ```fetch()``` data from APIs linked within the parenthesis of the global function. It also thaught me how to utilize the ```try``` and ```catch``` blocks within the ```app.use``` ```async/await``` function for my application.
 
 Specifically at around (5:45) timestamp it goes into depth on this line of code within my app.
 
@@ -163,15 +163,15 @@ if (!response.ok) {
 }
 ```
 
-Which checks if the response, (the user's ip address), is ok, meaning that the get request worked and teh object returned with an ok status (200-299) wereas this response is intended to be triggered if there is an error getting the ```req``` object which stores the user's ip address, either a client side error (400-499) or server side error, in the case that the freeipapi website's ervers were down (500-599).
+Which checks if the response, (the user's ip address), is ok, meaning that the get request worked and the object returned with an ok status (200-299) whereas this response is intended to be triggered if there is an error getting the ```req``` object which stores the user's ip address, either a client side error (400-499) or server side error, in the case that the freeipapi website's ervers were down (500-599).
 
-The next step is to store the response variable with the freeipapi.com API in a separate variable (data) which coverts response to JavaScript Object Notation (JSON).
+The next step is to store the response variable with the freeipapi.com API in a separate variable (data) which converts response to JavaScript Object Notation (JSON).
 
 ```js
 const data = await response.json()
 ```
 
-Then we set the ```.geoLocation``` property of the ```req``` object to the ```data``` variable with the value of ```response.json()``` which uses ```await``` to ensure it only runs after the eother middleware (so that the code waits for the server to finish parsing the request user-data before altering that data to produce a subsequently altered response).
+Then we set the ```.geoLocation``` property of the ```req``` object to the ```data``` variable with the value of ```response.json()``` which uses ```await``` to ensure it only runs after the other middleware (so that the code waits for the server to finish parsing the request user-data before altering that data to produce a subsequently altered response).
 
 ```js
 req.geoLocation = data
@@ -187,7 +187,7 @@ const countryToLanguage = {
 }
 ```
 
-The below code checks if there even is a country code and detected language in which it sets the language code of the req object to the given language of the region by calling the rough geolocation which with the .countryCode property appended to it, constitutes a given region which then has the language that is ultimately being derived to set req.language to, as objects and arrays in Javascript have prebuilt functions behind them that allow them to select other objects, strings or variables, passing them through and checking those values with ones within the object or array to derive a single value to be used.
+The below code checks if there even is a country code and detected language in which it sets the language code of the req object to the given language of the region by calling the rough geolocation which with the .countryCode property appended to it, constitutes a given region which then has the language that is ultimately being derived to set req.language to, as objects and arrays in Javascript have pre built functions behind them that allow them to select other objects, strings or variables, passing them through and checking those values with ones within the object or array to derive a single value to be used.
 
 ```js
 if (data.countryCode && countryToLanguage[data.countryCode]) {
@@ -200,9 +200,9 @@ if (data.countryCode && countryToLanguage[data.countryCode]) {
 req.i18n.changeLanguage(req.language)
 ```
 
-The ```.changeLanguage``` method of the i18n ```req``` object property acts as a function which takes in the the ```req.langauge``` variable/recently-altered-object-property as the argument for the behind-the-scneses built in i18n-internationalization function to set the language to that of the ```req.langauge``` variable which rectroactively depends on the user's ip-address and subsequent region.
+The ```.changeLanguage``` method of the i18n ```req``` object property acts as a function which takes in the the ```req.langauge``` variable/recently-altered-object-property as the argument for the behind-the-scenes built in i18n-internationalization function to set the language to that of the ```req.langauge``` variable which retroactively depends on the user's ip-address and subsequent region.
 
-It is important to remember to call the ```next()``` function aftwerward to end this middleware which get's the user's ip address, (checked with running servers provided via the freeipapi-API) converts it to a JSON object and stores that within the global ```data``` variable which the the ```.geoLocation``` parameter of the ```req``` object (```req.geoLocation```) is set to; utilizing that and the ```countryToLanguage``` object to derive the request-object language and use the ```.changeLanguage()``` method to change the language of the dynamically-updated i18n JSON object-strings according to the given language.
+It is important to remember to call the ```next()``` function afterward to end this middleware which get's the user's ip address, (checked with running servers provided via the freeipapi-API) converts it to a JSON object and stores that within the global ```data``` variable which the the ```.geoLocation``` parameter of the ```req``` object (```req.geoLocation```) is set to; utilizing that and the ```countryToLanguage``` object to derive the request-object language and use the ```.changeLanguage()``` method to change the language of the dynamically-updated i18n JSON object-strings according to the given language.
 
 ```js
 next()
@@ -217,7 +217,7 @@ catch (error) {
 }
 ```
 
-That middleware also having to be resolved with the ```next()``` function called after that code to ```console.error``` the error message.
+That middleware also has to be resolved with the ```next()``` function called after that code to ```console.error``` the error message.
 
 I learned more about ```async/await``` with [the following video](https://www.youtube.com/watch?v=9j1dZwFEJ-c). ```Await``` works hand-in-hand with functions (such as app.use in this case) which are declared, or have their middleware (the (```req```, ```res```, and optional, but in the case of running middleware code, necessary ```next```) object parameters) declared with ```async```. Declaring ```await``` before a line of code nested within an ```async``` (asynchronous) function ensures that it is only run when a promise is met, *a-waiting* until then.
 
@@ -292,7 +292,7 @@ The ```welcomeMessage``` gets dynamically updated with the value of the request 
 const welcomeMessage = req.t("hello");
 ```
 
-For simplicity I coded the html directly in my Javascript-express file, but I must learn a templating language to connect an html file with my content, css, and frontend user-interactivity Javascript once I have my site hosted in which it will have connection to the internet and dynamically updated ip-addreses (meaning I have to change the code to not hard code it but use the req.ip object-property) instead of being hosted locally on my computer or on the cs50 github IDE port.
+For simplicity I coded the html directly in my Javascript-express file, but I must learn a templating language to connect an html file with my content, css, and frontend user-interactivity Javascript once I have my site hosted in which it will have connection to the internet and dynamically updated ip-addresses (meaning I have to change the code to not hard code it but use the req.ip object-property) instead of being hosted locally on my computer or on the cs50 github IDE port.
 
 Since I am building the application locally using vs code and uploading a compressed .zip file of my tool folder to my IDE which I then unzip after deleting the previous directory, the port that the application listens to must be declared at the very end of the file.
 
@@ -300,7 +300,7 @@ Since I am building the application locally using vs code and uploading a compre
 app.listen(5000)
 ```
 
-Thunder client produces a response when a GET request is made on the locahost port with the exact same raw html which isnested within the response of the app.get route, just with the values updated.
+Thunder client produces a response when a GET request is made on the localhost port with the exact same raw html which is nested within the response of the app.get route, just with the values updated.
 
 ![alt text](image-1.png)
 
@@ -328,7 +328,7 @@ This line of code currently hard-sets the ip address to be used by the function 
 const ip = req.ip
 ```
 
-In order to retreive the dynamically updated ```.ip``` property of the request object holding all of the user's data inclduing the ip address within the ```.ip``` property.
+In order to retrieve the dynamically updated ```.ip``` property of the request object holding all of the user's data including the ip address within the ```.ip``` property.
 
 I might also have to alter or remove this code:
 
@@ -343,7 +343,7 @@ My partner for the freedom project is also to design the webpage which the backe
 My next plan in learning node and express.js is to learn a templating language to apply my code to my html frontend, and after that learn how to host my website and set everything up with the backend index.js file and  frontend index.html file in their respective directories within the entire ```ip-immigration-app```.
 
 ### Skills
-One skill that I strengthened throughout working on my freedom project was **problem decomposition**. I took what seemed an arduous task of creating an entire app that gets the user's ip address into a manageable 85-line javscript algorithm which takes in a hardcoded ip-address value and cross references it with real ip-addresses by ```fetching()``` data from the freeipapi.com API which has running servers which connect to the internet and can return the needed data to cross references the ip address inputted into the ```ip``` variable
+One skill that I strengthened throughout working on my freedom project was **problem decomposition**. I took what seemed an arduous task of creating an entire app that gets the user's ip address into a manageable 85-line javascript algorithm which takes in a hardcoded ip-address value and cross references it with real ip-addresses by ```fetching()``` data from the freeipapi.com API which has running servers which connect to the internet and can return the needed data to cross references the ip address inputted into the ```ip``` variable
 
 ```js
 const apiUrl = `https://freeipapi.com/api/json/${ip}`;
@@ -351,7 +351,7 @@ const apiUrl = `https://freeipapi.com/api/json/${ip}`;
 
 Which is why that precisely-named variable is passed within the curly braces of the url.
 
-Another skill that I had to practice was how to **learn on my own** as I had no idea how to use node and express to put together applications with javascript before working on my freedom project. I followed along with these videos, asking for help in coding club when need be but throughout most of the process of building the freedom project endevoured in learning the concepts and trying it out on my own. In this case it wasn't really essential to dance around other concepts of node.js and express themselves like POST API's (which aren't even, as I assumed, utilized within my app since the data that is utilized to alter the request which is printed to the html as a JSON string is derived from the separate, freeipapi.com API) and instead *delve into acheiving the goal of my project itself even despite how little I may now at the time*, in which I will learn the concepts and *how to utilize* them along the way, the only way to learn being *through actually coding the program/operation that you are envisioning*. This makes it so that after learning more coding concepts, even more ideas for apps will come to you in the future and you will know how to better implement your ideas into a working product.
+Another skill that I had to practice was how to **learn on my own** as I had no idea how to use node and express to put together applications with javascript before working on my freedom project. I followed along with these videos, asking for help in coding club when need be but throughout most of the process of building the freedom project, endeavored in learning the concepts and trying it out on my own. In this case it wasn't really essential to dance around other concepts of node.js and express themselves like POST API's (which aren't even, as I assumed, utilized within my app since the data that is utilized to alter the request which is printed to the html as a JSON string is derived from the separate, freeipapi.com API) and instead *delve into achieving the goal of my project itself even despite how little I may now at the time*, in which I will learn the concepts and *how to utilize* them along the way, the only way to learn being *through actually coding the program/operation that you are envisioning*. This makes it so that after learning more coding concepts, even more ideas for apps will come to you in the future and you will know how to better implement your ideas into a working product.
 
 
 [Previous](entry02.md) | [Next](entry04.md)
