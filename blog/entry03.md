@@ -66,7 +66,7 @@ const localesDir = path.join(__dirname, "locales")
 
 Each corresponding language which the text is ultimately translated to is stored within a JSON (javascript object notation) object-string which is updated to the value of the parameters of the ```req``` object and then retroactively inserted within the html of the file with data updated based on previous functions which derive the translated text from the .json language file to use (en.json, es.json, de.json, etc., etc.,). These file are kept in a ```locales``` directory within the backend directory to be accessible when the application is hosted locally with only the data from the backend directory being accessed and procesed.
 
-![alt text](image.png)
+![alt text](image-3.png)
 
 I learned about manipulating data in JSON files using Javascript by watching [this video](https://www.youtube.com/watch?v=r4MLHHLctKw). JSON is used to exchange data between applications and servers.
 
