@@ -255,7 +255,7 @@ Simple 1-dimensional JavaScript objects will used to acheive this static automat
 npm install i18n-next
 ```
 
-and 
+and
 
 ```bash
 npm install i18n-next-http-middleware
@@ -286,7 +286,7 @@ containing the subsequent internationalization and internationalization-middlewa
 * middleware: code that runs between the time the request is received by the server and it sends out a response to the client
     * https://www.youtube.com/watch?v=lY6icfhap2o
 
-* Then I had to import all of the dependancies from the package.json file, 
+* Then I had to import all of the dependancies from the package.json file,
 
 ```js
 import express from "express"
@@ -329,7 +329,7 @@ Create an empty resources object to store all of the data from the language file
 const resources = {}
 ```
 
-And create a .forEach loop to append everything from the locales directory to the resources object. 
+And create a .forEach loop to append everything from the locales directory to the resources object.
 
 ```js
 languages.forEach((lang) => {
@@ -365,7 +365,7 @@ app.use(
 
 *3/10/2025*
 
-* In the following app.use async function for adding the region language code detector middleware to the express server, we must first manually set a hardcoded ip-address for testing on the localhost computer server which does not connect to the internet and can not query dynamic ip-addresses. 
+* In the following app.use async function for adding the region language code detector middleware to the express server, we must first manually set a hardcoded ip-address for testing on the localhost computer server which does not connect to the internet and can not query dynamic ip-addresses.
 
 ```js
 const ip = "101.33.11.255"
@@ -386,7 +386,7 @@ const apiUrl = `https://freeipapi.com/api/json/${ip}`;
 const response = await fetch(apiUrl)
 ```
 
-* If the api call fails, meaning that the response is not equal to .ok (coded in the syntax ```!response.ok```) then we throw a new a error which sends the message 
+* If the api call fails, meaning that the response is not equal to .ok (coded in the syntax ```!response.ok```) then we throw a new a error which sends the message
 
 ```js
 `API responded with status ${response.status}`
@@ -437,7 +437,7 @@ req.i18n.changeLanguage(req.language)
 
 The ```changeLanguage``` method of the i18n ```req``` object property acts as a function which takes in the the ```req.langauge``` variable/recently-altered-object-property as parameter for the behind-the-scneses built in i18n-internationalization code to set the language to that of the ```req.langauge``` variable which rectroactively depends on the user's ip-address and region.
 
-* It is important to remember to call the ```next()``` function aftwerward to end this middleware which get's the user's ip address, (checked with running servers provided via the freeipapi-API) converts it to a JSON object and stores that within the global ```data``` variable which the the geoLocation parameter of the ```req``` object (```req.geoLocation```) is set to; utilizing that and the ```countryToLanguage``` object to derive the request-object language and use the ```changeLanguage()``` method to change the language of the dynamically-updated i18n JSON object-strings according to the given language. 
+* It is important to remember to call the ```next()``` function aftwerward to end this middleware which get's the user's ip address, (checked with running servers provided via the freeipapi-API) converts it to a JSON object and stores that within the global ```data``` variable which the the geoLocation parameter of the ```req``` object (```req.geoLocation```) is set to; utilizing that and the ```countryToLanguage``` object to derive the request-object language and use the ```changeLanguage()``` method to change the language of the dynamically-updated i18n JSON object-strings according to the given language.
 
 ```js
 next()
@@ -506,7 +506,7 @@ app.get("/", (req, res) => {
                 <p>Detected language: ${req.language || "Not detected"}</p>
                 <p>Country: ${req.geoLocation?.countryName || "Unknown"}</p>
             </body>
-        </html>            
+        </html>
     `)
 })
 ```
@@ -566,7 +566,7 @@ npm install dotenv
 
 * As well as the `i18next` and `i18next-http-middleware` dependancies which the freedom project already relied on for translation with node.js solely.
 
-* [This article]("https://www.stackhawk.com/blog/react-cors-guide-what-it-is-and-how-to-enable-it/") goes into depth on `cors`, which stands for cross-origin resource sharing. 
+* [This article]("https://www.stackhawk.com/blog/react-cors-guide-what-it-is-and-how-to-enable-it/") goes into depth on `cors`, which stands for cross-origin resource sharing.
 
 * The `back-end` package.json file at this point contained the following dependencies:
 
@@ -712,7 +712,11 @@ And the app has to exported like so on the very last line to be rendered by verc
 export default app
 ```
 
-Now when we visit the `"/api/fetchlanguage"` route of the ip-immigration-website.vercel.app website we get the pure JSON response of the detected country-code, which retroactively updates according to the ip address which can be changed by reloading the tor circuit in tor browser, the country-code automatically changing once the detected ip address changes!
+We also need to have a `vercel.json` file in ojur backend directory which holds the appropriate dependancies to allow for out backend to be hosted to vercel.
+
+![alt text](image-4.png)
+
+Now when we visit the `"/api/fetchlanguage"` route of the `ip-immigration-website.vercel.app` website we get the pure JSON response of the detected country-code, which retroactively updates according to the ip address which can be changed by reloading the tor circuit in tor browser, the country-code automatically changing once the detected ip address changes!
 
 ![alt text](<Screenshot from 2025-03-22 20-18-37.png>)
 
