@@ -145,7 +145,7 @@ If the API call fails, meaning that the response is not equal to .ok (coded in t
 `API responded with status ${response.status}`
 ```
 
-The ${response.status} JSON object being equal to the status of the response (200: ok, 400: server-error, etc.).
+The ```${response.status}``` JSON object being equal to the status of the response (200: ok, 400: server-error, etc.).
 
 ```js
 if (!response.ok) {
@@ -187,7 +187,7 @@ const countryToLanguage = {
 }
 ```
 
-The below code checks if there even is a country code and detected language in which it sets the language code of the req object to the given language of the region by calling the rough geolocation which with the .countryCode property appended to it, constitutes a given region which then has the language that is ultimately being derived to set req.language to, as objects and arrays in Javascript have pre built functions behind them that allow them to select other objects, strings or variables, passing them through and checking those values with ones within the object or array to derive a single value to be used.
+The below code checks if there even is a country code and detected language in which it sets the language code of the ```req``` object to the given language of the region by calling the rough geolocation with which the .countryCode property appended it to, constitutes a given region which then has the language that is ultimately being derived to set req.language to, as objects and arrays in Javascript have pre built functions behind them that allow them to select other objects, strings or variables, passing them through and checking those values with ones within the object or array to derive a single value to be used.
 
 ```js
 if (data.countryCode && countryToLanguage[data.countryCode]) {

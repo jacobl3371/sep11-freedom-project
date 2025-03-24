@@ -47,8 +47,7 @@ app.use(async (req, res, next) => {
             throw new Error(`API responded with status ${response.status}`)
         }
         const data = await response.json()
-        req.geoLocation = data
-
+        
         const countryToLanguage = {
             US: "en",
             ES: "es",
@@ -76,7 +75,6 @@ app.get("/", (req, res) => {
             <body>
                 <h1>${welcomeMessage}</h1>
                 <p>Detected language: ${req.language || "Not detected"}</p>
-                <p>Country: ${req.geoLocation?.countryName || "Unknown"}</p>
             </body>
         </html>            
     `)

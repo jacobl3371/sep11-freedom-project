@@ -309,7 +309,7 @@ store the directory-path to the index.js file assigned to it's respetive variabl
 const __dirname = path.dirname(__filename)
 ```
 
-and then create a ```localesDir``` variable which stores the combined path of the directory (```__dirname```) and the locales directory within the same backend folder that has each language.json file (i.e: de.json, en.json...) which dynamically sets the countryCode paramter of the geoLocation paramter (stored for readability within the ``data`` variable later in the code) of the ```req``` object to a different region, middleware allowing for that code to be run *before* the server sends the client back a response (```res```), which subsequently alters the request so that the corresponsing response is sent back to the user depending on the data being used to alter the request, which in this case, though for now only simulated with a manually inputted ip-address, depends on data derived from the user when they **request** the web application from the server upon their computer trying to fetch and load the data from the website.
+and then create a ```localesDir``` variable which stores the combined path of the directory (```__dirname```) and the locales directory within the same backend folder that has each language.json file (i.e: de.json, en.json...) which dynamically sets the countryCode parameter of the geoLocation paramter (stored for readability within the ``data`` variable later in the code) of the ```req``` object to a different region, middleware allowing for that code to be run *before* the server sends the client back a response (```res```), which subsequently alters the request so that the corresponsing response is sent back to the user depending on the data being used to alter the request, which in this case, though for now only simulated with a manually inputted ip-address, depends on data derived from the user when they **request** the web application from the server upon their computer trying to fetch and load the data from the website.
 
 * Next we declare our app as express *after* the above lines of code to import all of the dependancies and select and join the file-path directories
 
@@ -320,7 +320,7 @@ const app = express()
 Store all of the regions within a language array
 
 ```js
-const languages = ["eapp.listen(3000)n", "es", "de"]
+const languages = ["en", "es", "de"]
 ```
 
 Create an empty resources object to store all of the data from the language files in th elocal directory
@@ -329,7 +329,7 @@ Create an empty resources object to store all of the data from the language file
 const resources = {}
 ```
 
-And create a .forEach loop to append all everything from the locales directory to the resources object.
+And create a .forEach loop to append everything from the locales directory to the resources object. 
 
 ```js
 languages.forEach((lang) => {
@@ -544,4 +544,175 @@ Webpage with Germany ip address applied:
 
 Webpage with United States ip address applied:
 ![alt text](image-2.png)
+
+
+
+-----------------------------------------------------------------------------------
+*3/22/2025*
+
+* I made a new repository for the freedom project named `ip-immigration-website` which is for convenience and best practices, separate from the sep11-freedom-project repo.
+    * This was due to us having to make a new repo from scratch for the app/website once again as my partner had been learning react so we had to incorporate the required dependancies for react and express and i18next into our app, and also to not have to remove anything else in the old `ip-immigration-app` app-directory (which is in the tool folder of the sep11-freedom-project repo) that may have caused the new fullstack setup to not work.
+* We had to install dependancies like [cors](https://expressjs.com/en/resources/middleware/cors.html) which allows for my nodejs and express backend to be linked to my partner's react frontend
+
+```bash
+npm install cors
+```
+
+and `dotenv`
+
+```bash
+npm install dotenv
+```
+
+* As well as the `i18next` and `i18next-http-middleware` dependancies which the freedom project already relied on for translation with node.js solely.
+
+* [This article]("https://www.stackhawk.com/blog/react-cors-guide-what-it-is-and-how-to-enable-it/") goes into depth on `cors`, which stands for cross-origin resource sharing. 
+
+* The `back-end` package.json file at this point contained the following dependencies:
+
+```json
+{
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "i18next": "^24.2.2",
+        "i18next-http-middleware": "^3.7.1"
+    },
+}
+```
+
+* Next we have to import the `express` and `cors` dependancies into our `index.js` file in our back-end like so:
+
+```js
+import express from "express"
+import cors from "cors"
+```
+
+* I have that file stored in a folder named `api` as the index.js file acts as it's own API when called by this line of code in the front-end `initI18n.js` file:
+
+```js
+const response = await fetch("http://localhost:3000/api/fetchlanguage")
+```
+
+-The `api/fetchlanguage` route leading to a response with the JSON data of the two-letter country code.
+
+* Then the app is set to `express()` as usual.
+
+```js
+const app = express()
+```
+
+* But we also must create an `app.use()` function to use the cors cross-origin resource sharing dependancy:
+
+```js
+app.use(cors())
+```
+
+* The following `app.get()` function produces a response using the specified request parameter (the ip address) which has the two-letter country-code (which is to later match a .json file in the locales directory in the front-end) that can be correlated to an existing language for the app to pick amongst when translating itself as that .json language file becomes added to the i18next resource bundle.
+
+```js
+app.get("/api/fetchlanguage", async (req, res) => {})
+```
+
+* We can view this pure JSON API response by visiting the "/api/fetchlanguage" directory route endpoint by simply adding that endpoint route to the end of our URL that points to the backend directory of our app hosted on vercel (need to make sure to select the backend to host).
+
+![alt text](image-3.png)
+
+```js
+const ip = req.headers["x-forwarded-for"]
+```
+
+* This variable stores the dynamically updated ip address in the `ip` variable, and we use `req.headers["x-forwarded-for"]` instead of `req.ip` as vercel is designed differently, (mostly being made to work with next.js features which you'll see me having to adjust my later express code to accomodate to) and uses serverless hosting so it can't just automatically detect the ip address by getting that information from its own server, and can only process the ip address forwarded from the client's-side.
+
+```js
+ if (ip === "127.0.0.1" || ip === "::1") {
+    return next()
+}
+```
+
+* This code stays the same as the API is still intended to skip loading the app.use() function to get the JSON language/country-code from the ip-address if that returned ip-address is just the localhost and not an ip address that could be derived from connecting to the application on an internet-connected web browser.
+
+```js
+const apiUrl = `https://freeipapi.com/api/json/${ip}`
+```
+
+The ip address stored in the `ip` variable is applied to the freeipapi.com API, with the "api/json" to retreive the JSON language/country-code data based on the inputted ip address which the freeipapi.com API database can correlate to an existing region and subsequent country-code.
+
+```js
+const response = await fetch(apiUrl)
+```
+
+That response is then stored within a variable named `response` which awaits for the promise of fetching the `apiUrl` to be met, which is to return the country-code based on the inputted ip-address, upon which it moves on to the next code of using that `response` variable, but not before, of course, like I had it in my old code, check if that response produces an `ok` status, and if not throw a new error.
+
+```js
+if (!response.ok) {
+    throw new Error(`API responded with status ${response.status}`)
+}
+```
+
+Then the `data` variable holds the .json JSON output of the response, and it uses await to have app.use async function only move on to the next code the promise of getting the `response.json` is fulfilled.
+
+```js
+const data = await response.json()
+```
+
+Finaly the last line of the `try{}` in our async function returns the output with the response containing the pure JSON data of the "language" followed by a two letter country code derived from appending the `.countryCode.toLowerCase()` property to our `data` variable.
+
+```js
+return res.json({ language: data.countryCode.toLowerCase()})
+```
+
+And the output looks precisely like so:
+
+![alt text](<Screenshot from 2025-03-23 18-24-55.png>)
+
+After that we have a `catch{}` block to catch and `console.error` any errors in getting the country-code from the ip address.
+
+```js
+catch (error) {
+    return res.json({ error: error.message })
+}
+```
+
+The entire async/await `app.get` function is formwatted like so:
+
+```js
+app.get("/api/fetchlanguage", async (req, res) => {
+    try {
+        const ip = req.headers["x-forwarded-for"]
+
+        if (ip === "127.0.0.1" || ip === "::1") {
+            return next()
+        }
+
+        const apiUrl = `https://freeipapi.com/api/json/${ip}`
+        const response = await fetch(apiUrl)
+        if (!response.ok) {
+            throw new Error(`API responded with status ${response.status}`)
+        }
+        const data = await response.json()
+        return res.json({ language: data.countryCode.toLowerCase()})
+    }
+    catch (error) {
+        return res.json({ error: error.message })
+    }
+})
+```
+
+Next the express app has to listen for port 3000, unlike 5000 the way I had it earlier as this is specific to vercel.
+
+```js
+app.listen(3000)
+```
+
+And the app has to exported like so on the very last line to be rendered by vercel:
+
+```js
+export default app
+```
+
+Now when we visit the `"/api/fetchlanguage"` route of the ip-immigration-website.vercel.app website we get the pure JSON response of the detected country-code, which retroactively updates according to the ip address which can be changed by reloading the tor circuit in tor browser, the country-code automatically changing once the detected ip address changes!
+
+![alt text](<Screenshot from 2025-03-22 20-18-37.png>)
 
