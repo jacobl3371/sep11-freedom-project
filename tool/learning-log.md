@@ -786,7 +786,7 @@ That `.addResourceBundle()` method for `i18next` is a resource object which the 
 const response = await fetch("http://localhost:3000/api/fetchlanguage")
 ```
 
-* Since the `app` (express) was set to *be listened for* on port 3000 that is the port that contains the index.js api-directory, backend-directory code (which running on localhost:3000 is technically an app in of itself with the express backedn code that is to be used by the react frontend code in our initI18n.js file) that is then accessed on the /api/fetchlangage endpoint where the get request with all of the backend code, and the subsequent response (the json two-letter region value) is sent to.
+* Since the `app` (express) was set to *be listened for* on port 3000 that is the port that contains the index.js api-directory, backend-directory code (which running on localhost:3000 is technically an app in of itself with the express backend code that is to be used by the react frontend code in our initI18n.js file) that is then accessed on the /api/fetchlanguage endpoint where the get request with all of the backend code, and the subsequent response (the json two-letter region value) is sent to.
 
 * Even though in the index.js file app.get function for the /api/fetchlanguage endpoint that two-letter region `countryCode` is sent as a response with the `res.json({})` `.json({})` parsing method, that response only remains in JSON form when the /api/fetchlanguage endpoint is called on the vercel-hosted app, so that response variable with the region code must be converted from a string to JSON and stored in another variable that we'll call `data`.
 
