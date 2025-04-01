@@ -714,7 +714,7 @@ And the app has to exported like so on the very last line to be rendered by `ini
 export default app
 ```
 
-We also need to have a `vercel.json` file in ojur backend directory which holds the appropriate dependancies to allow for out backend to be hosted to vercel.
+We also need to have a `vercel.json` file in our backend directory which holds the appropriate dependancies to allow for out backend to be hosted to Vercel.
 
 ![alt text](image-4.png)
 
