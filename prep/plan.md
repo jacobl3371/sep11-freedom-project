@@ -7,27 +7,26 @@
 
 ## Timeline
 
-#### MVP (-All Me)
+#### MVP (All Me)
 
-- [ ] Finish making the backend express API from scratch to get the user's IP address and automatically translate the webpage based on their region:
-  - [ ] Get the user's IP address (2/16)
-    - [ ] test this by creating a function that automatically affects an element on the webpage according to what the IP address is (2/20)
-  - [ ] Finish the API; apply the user's IP address in order to automatically translate the webpage (will probably be a 3d object with IP addresses assigned to regions and regions assigned to language routes):
-    - [ ] I will have to figure out how to create/incorporate a function into my API which automatically directs the user to different language routes (app.get index.html/en, app.get index.html/es, etc.) (4/1)
+- [X] Make the backend express API from scratch that gets the user's IP address and will be used to automatically translate the webpage based on their region:
+  - [X] Get the user's IP address (2/16)
+  - [X] Finish the API; apply the user's IP address in order to automatically translate the webpage (will probably be an object with IP addresses assigned to regions which correspond to the language) (3/9)
+-[X] Refactor the Express backend API to retroactively update the html text sent in a separate React frontend which can be tested by hosting the fullstack app from that frontend directory, accessing the website in Tor Browser and reloading the Tor Circuit which should update the IP Address and subsequent region that just the API returns which is then to be used by the frontend to automatically translate the text. (3/25)
 
 ####  MVP (Caleb)
 
-- [ ] Design the frontend of the webpage to make it how he wants it to look so I can build the app with vanilla css and incorporate my API (3/15)
-- [ ] Finish learning enough React JS so that we can rebuild the frontend with react which will make the webpage load super fast! (4/10)
-- [ ] Test translation feature (4/1)
+- [X] Finish learning enough React JS so that we can rebuild the frontend with react which will make the webpage load super fast! (3/15)
+- [ ] Design the frontend of the webpage (4/1)
+- [ ] Test translation feature for the html select drop-down component (4/15)
   - [ ] Look for bugs
-- [ ] Write the articles for the app (4/1)
+- [ ] Write the articles for the app (4/15)
+- [ ] Finish building the React frontend (4/19)
 
 ### Beyond MVP
 
 - [ ] Create a authentication page (Caleb) (4/3)
 - [ ] Design a fake database (Caleb) (4/3)
-- [ ] Translate into more niche languages like arabic and norwigian (Jacob) (4/3)
 
 
 
