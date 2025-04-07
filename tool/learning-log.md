@@ -255,7 +255,7 @@ Simple 1-dimensional JavaScript objects will used to acheive this static automat
 npm install i18n-next
 ```
 
-and
+and 
 
 ```bash
 npm install i18n-next-http-middleware
@@ -286,7 +286,7 @@ containing the subsequent internationalization and internationalization-middlewa
 * middleware: code that runs between the time the request is received by the server and it sends out a response to the client
     * https://www.youtube.com/watch?v=lY6icfhap2o
 
-* Then I had to import all of the dependancies from the package.json file,
+* Then I had to import all of the dependancies from the package.json file, 
 
 ```js
 import express from "express"
@@ -329,7 +329,7 @@ Create an empty resources object to store all of the data from the language file
 const resources = {}
 ```
 
-And create a .forEach loop to append everything from the locales directory to the resources object.
+And create a .forEach loop to append everything from the locales directory to the resources object. 
 
 ```js
 languages.forEach((lang) => {
@@ -365,7 +365,7 @@ app.use(
 
 *3/10/2025*
 
-* In the following app.use async function for adding the region language code detector middleware to the express server, we must first manually set a hardcoded ip-address for testing on the localhost computer server which does not connect to the internet and can not query dynamic ip-addresses.
+* In the following app.use async function for adding the region language code detector middleware to the express server, we must first manually set a hardcoded ip-address for testing on the localhost computer server which does not connect to the internet and can not query dynamic ip-addresses. 
 
 ```js
 const ip = "101.33.11.255"
@@ -386,7 +386,7 @@ const apiUrl = `https://freeipapi.com/api/json/${ip}`;
 const response = await fetch(apiUrl)
 ```
 
-* If the api call fails, meaning that the response is not equal to .ok (coded in the syntax ```!response.ok```) then we throw a new a error which sends the message
+* If the api call fails, meaning that the response is not equal to .ok (coded in the syntax ```!response.ok```) then we throw a new a error which sends the message 
 
 ```js
 `API responded with status ${response.status}`
@@ -437,7 +437,7 @@ req.i18n.changeLanguage(req.language)
 
 The ```changeLanguage``` method of the i18n ```req``` object property acts as a function which takes in the the ```req.langauge``` variable/recently-altered-object-property as parameter for the behind-the-scneses built in i18n-internationalization code to set the language to that of the ```req.langauge``` variable which rectroactively depends on the user's ip-address and region.
 
-* It is important to remember to call the ```next()``` function aftwerward to end this middleware which get's the user's ip address, (checked with running servers provided via the freeipapi-API) converts it to a JSON object and stores that within the global ```data``` variable which the the geoLocation parameter of the ```req``` object (```req.geoLocation```) is set to; utilizing that and the ```countryToLanguage``` object to derive the request-object language and use the ```changeLanguage()``` method to change the language of the dynamically-updated i18n JSON object-strings according to the given language.
+* It is important to remember to call the ```next()``` function aftwerward to end this middleware which get's the user's ip address, (checked with running servers provided via the freeipapi-API) converts it to a JSON object and stores that within the global ```data``` variable which the the geoLocation parameter of the ```req``` object (```req.geoLocation```) is set to; utilizing that and the ```countryToLanguage``` object to derive the request-object language and use the ```changeLanguage()``` method to change the language of the dynamically-updated i18n JSON object-strings according to the given language. 
 
 ```js
 next()
@@ -506,7 +506,7 @@ app.get("/", (req, res) => {
                 <p>Detected language: ${req.language || "Not detected"}</p>
                 <p>Country: ${req.geoLocation?.countryName || "Unknown"}</p>
             </body>
-        </html>
+        </html>            
     `)
 })
 ```
@@ -566,7 +566,7 @@ npm install dotenv
 
 * As well as the `i18next` and `i18next-http-middleware` dependancies which the freedom project already relied on for translation with node.js solely.
 
-* [This article]("https://www.stackhawk.com/blog/react-cors-guide-what-it-is-and-how-to-enable-it/") goes into depth on `cors`, which stands for cross-origin resource sharing.
+* [This article]("https://www.stackhawk.com/blog/react-cors-guide-what-it-is-and-how-to-enable-it/") goes into depth on `cors`, which stands for cross-origin resource sharing. 
 
 * The `back-end` package.json file at this point contained the following dependencies:
 
@@ -714,7 +714,7 @@ And the app has to exported like so on the very last line to be rendered by `ini
 export default app
 ```
 
-We also need to have a `vercel.json` file in our backend directory which holds the appropriate dependancies to allow for out backend to be hosted to Vercel.
+We also need to have a `vercel.json` file in our backend directory which holds the appropriate dependencies to allow for our backend to be hosted to Vercel.
 
 ![alt text](image-4.png)
 
@@ -737,7 +737,7 @@ Now when we visit the `"/api/fetchlanguage"` route of the ip-immigration-website
 
 * Now with the backend API done we have to send this data to the frontend so that the user can see the translated text.
 
-* After importing these dependencies in the `init18n.js` frontend file for `i18next` and `react-18next` like so
+* After importing these dependencies in the `init18n.js` frontend file for `i18next` and `react-18next` like so 
 
 ```js
 import i18next from "i18next"
@@ -764,7 +764,7 @@ catch (e) {
 }
 ```
 
-Before the `try{}` block in the async function the default fall-back language must be set to apply that json region code and subsequent translated text of that .json file if translations in the user's language are not available, meaning that the .json two-letter region file which holds the translated text is not present in our /locales directory. Deriving the region/language file to use must also only be done later in the try{} block as await needs to be used to actually get the json region code (since our API may or may not fail eventually) and to import that .json file from the locales directory (it may or may not exist depending on if I had created a locale file for that region and subsequent language).
+Before the `try{}` block in the async function the default fall-back language must be set to apply that json region code and subsequent translated text of that .json file if translations in the user's language are not available, meaning that the .json two-letter region file which holds the translated text is not present in our /locales directory. Deriving the region/language file to use must also only be done later in the try{} block as await needs to be used to actually get the json region code (since our API may or may not fail eventually) and to import that .json file from the locales directory (it may or may not exist depending on if I had created a locale file for that region and subsequent language). 
 
 ```js
 i18next.use(initReactI18next).init({
@@ -821,7 +821,7 @@ if (ip === "127.0.0.1" || ip === "::1") {
 ```js
 if(lang==="us"){
     return
-}
+} 
 ```
 
 * To handle every other case where the user's detected region that's derived earlier from our API is not equivalent to the default and fallback region, we need to declare a variable, that I have named `module` to represent the given language module that uses the await pre-declaration/function once again within the try{} block of our async function to await the importing of the file which matches that given `lang` variable within the locales directory, being parsed with `${}` to convert the JSON stored in the `lang` variable *back* to a string to complete the route to the .json file from which to import the translated text from.
@@ -870,7 +870,7 @@ const initI18n = async () => {
 
         if(lang==="us"){
             return
-        }
+        } 
 
         const module = await import(`./locales/${lang}.json`)
         i18next.addResourceBundle(lang, "translation", module.default || module)
@@ -882,15 +882,16 @@ const initI18n = async () => {
 }
 ```
 
-* And once again all of the code run within the app/function/variable of that file must be exported so that it can be accessed by other files (from here on the react .jsx files).
+* And once again all of the code run within the app/function/variable of that file must be exported so that it can be accessed by other files (from here on the react .jsx files). 
 
 ```js
 export default initI18n
 ```
 
-* Finally to put together the fullstack app we need to update the text of the HTML returned within the react frontend to the language set previously according to the user's region which was done in the initI18n.js file on the last line of the try{} block of the async function where the language was changed to the language of the region using `.changeLanguage`.
+* Finally to put together the fullstack app we need to update the text of the HTML returned within the react frontend to the language set previously according to the user's region which was done in the initI18n.js file on the last line of the try{} block of the async function where the language was changed to the language of the region using `.changeLanguage()`.
 
 ```js
+// Home.jsx
 import { useTranslation } from "react-i18next"
 
 const Home = () => {
@@ -919,10 +920,97 @@ Then it will return the translated text for the corresponding key in that .json 
 export default Home
 ```
 
-* [This article](https://www.i18next.com/overview/api) helped me to better understand the use of i18next with react and the deployment of the `getTranslation` react hook and `t` function to translate the text according to the set region for i18next.
+* [This article](https://www.i18next.com/overview/api) helped me to better understand the use of i18next with react and the deployment of the `useTranslation` react hook and `t` function to translate the text according to the set region for i18next. 
 
 
 
+-----------------------------------------------------------------------------------
+*4/6/2025*
 
+* The final step in deploying the fullstack application is to add environment variables to the frontend directory in order for the deployed frontend to connect to the backend.
 
+![alt text](image-6.png)
 
+![alt text](image-7.png)
+
+* This relies on the `dotenv` dependency that was already present in the backend to host that directory on Vercel (allowing for the route that is accessed by appending the '/api/fetchlanguage' endpoint to the url for the app deployed from the backend) except now that dependency, which is also present in the frontend, must be utilized in its own particular way with `Vite` which is the build tool used to deploy the frontend made with React, which like Node.js, is just a library in of itself, and requires a framework to implement in the web. For Node.js, it has for a while, intrinsically been Express, and the same goes for React with Vite.
+
+![alt text](image-8.png)
+
+* Adding the environment variable (just one in this case) for the React+Vite frontend to get that data from the backend requires changing some of the routing done in the `initI18n.js` file.
+
+```js
+const VITE_BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL
+```
+
+* A variable, `VITE_BACKEND_API_URL` must be declared on the firt line after the dependancy importations, with its value set to `import.meta.env.VITE_BACKEND_API_URL`. As is stated in the [Vite documentation](https://vite.dev/guide/env-and-mode), "Vite exposes certain constants [which is why the variable is declared with `const`] under the special `import.meta.env` object. These constants are defined as global variables during development and statically replaced at build time to make tree-shaking effective." This essentially means that that the constant, in this case the data of the region/language code extracted from the user's IP address which is fetched later when the `BACKEND_API` variable which contains just the path to the API, (`/api`), and not the endpoint, (`/api/fetchlanguage`), is called; the variable being prefixed with `VITE_` so it can be exposed to the Vite-processed code, Vite only allowing this configuration to prevent accidentally leaking env variables to the client. The `_URL` suffix declares the route stored in `BACKEND_API` as the the base url the app/website is being served from.
+
+```
+BACKEND_API=http://localhost:3000/api
+```
+
+* Subsequently, the route that the API is being fetched from by the frontend in that initI18n.js file must be changed from:
+
+```js
+const response = await fetch("http://localhost:3000/api/fetchlanguage")
+```
+
+to:
+
+```js
+const response = await fetch(`${VITE_BACKEND_API_URL}/fetchlanguage`)
+```
+
+On line 14 so that the `BACKEND_API` variable which contains the route to the API, (prefixed with `VITE_` and suffixed with `_URL` so that it becomes `VITE_BACKEND_API_URL`), is accessible by the frontend. It must be in this form so that ["tree-shaking"](https://en.wikipedia.org/wiki/Tree_shaking) is effective which basically means the elimination of unexutable functions, starting from the entry point; similar to the way JavaScript code is run from left to right. This is similar to the concept of lazy loading which is implemented in lines 22-24 of my `initI18n` express function (the function in of itself being exported on the last line of the file) wherein the region/langauge code matching the, at that point, already derived locales language code stored in the `lang` variable is only loaded and added to the i18next object if eariler (on lines 18-20), the language code was not the `us` i18n-processible locales code which was *already* loaded to the i18next resource object on line 11. You can read more about the difference in [this entry](https://stackoverflow.com/questions/75359791/tree-shaking-vs-lazy-loading#75361843).
+
+The `VITE_BACKEND_API_URL` variable is parsed within the dollar-sign-curly-brace `${}` ES6 function which converts a JavaScript or JSON variable into a string that can be inserted into that route, which must still be appended with `/fetchlanguage` to call our API endpoint.
+
+<!-- full changed initI18n.js file -->
+![alt text](image-5.png)
+
+* You can see in the `Environment Variables` section of the settings for the frontend-directory project hosted on Vercel that the `.env` variable is present, and it calls the same route as the backend directory project, (the original "ip-immigration-website.vercel.app" url as opposed to the new fullstack, frontend-hosted, "ip-immigration-website-frontend.vercel.app") but only with the `/api` route appended to it ("ip-immigration-website.vercel.app/api"), as the environment variable is only calling the route that exists within the file structure and must be nevertheless appended with the `/fetchlanguage` suffix to run the index.js file code of the backend api directory being called.
+
+![alt text](image-9.png)
+
+* And there are no special Environment Variables in the original Vercel project/deployment of just the backend directory. 
+
+![alt text](image-11.png)
+
+* Also, the app is not hosted from the root directory as I falsely assumed before having to integrate the React and Vite aspect, but instead from that frontend directory, with Vite selected as the framework like so:
+
+![alt text](image-10.png)
+
+![alt text](image-12.png)
+
+* I added many-many language translations, which I test by simply reloading the Tor circuit when accessing the deployed frontend directory of the fullstack app on Tor Browser until I get an exit node with the IP-address of the accompanying region. If no translation file for the derived region code of the client's/user's IP address (done so by our backend api) exists in our /locales directory than the langauge always falls back to English (`us` region code, since it doesn't matter if the IP address is actually in the United Kingdom or Australia as that will be the default fallback English language the app defaults to anyways).
+
+![alt text](<Screenshot from 2025-04-05 21-03-00.png>)
+
+![alt text](<Screenshot from 2025-04-05 21-27-09.png>)
+
+* I got the region codes from [this site](https://www.science.co.il/language/Locale-codes.php).
+
+![alt text](<Screenshot from 2025-04-05 19-34-15.png>)
+
+* Originally the code for Sweden didn't work
+
+![alt text](<Screenshot from 2025-04-05 21-36-07.png>)
+
+As the locales file that the i18n library was trying to cross-reference to an existing region code in its library (and that a derived region from any IP address could actually be equal to) was set to `sv` when the actual code that existed in the i18n library for Sweden and that was derived from our API when the client accessed the application with a Swedish IP address is `se`. So since since no according .json file with the translation existed in the locales directory, the app could not be translated with `.changeLanguage(lang)`
+as the language code and directory for the `lang` variable was never added to the i18n resource object as the path to the file with that 2-letter code didn't exist and the app just defaulted to the English language/us region code that already was loaded to the object.
+
+![alt text](<Screenshot from 2025-04-05 21-36-58.png>)
+
+* Apparently, there exist two region codes for Sweden particularly, both `sv` and `se`; "sv" existing under the ISO 639-1 standard for localization, with "se" being set under the ISO 3166-1 standard.
+
+![alt text](<Screenshot from 2025-04-05 22-12-23.png>)
+
+* I couldn't find any relevant search results from my query, so I turned to AI to find out if i18n was utilizing the ISO 639-1 standard or the ISO 3166-1 standard to parse the language code that it looks for in the corresponding .json locales file.
+
+![alt text](<Screenshot from 2025-04-05 22-12-29.png>)
+
+It turns out that the ISO 639-1 standard is implemented when looking for **language** codes, while the ISO 3166-1 standard is implemented when looking for .json files named with the matching **region** codes in the locales directory. I'm pretty sure the data in the i18n library for the ISO 639-1 standard is not up to date or accurate for every region, so some regions, like Sweden, can only use the ISO 3166-1 standard, which is the standard we already used for the default language of English with the United States, `us` code.
+
+Now I was able to get all of the translations for the corresponding IP addresses and subsequent regions to work.
+
+![alt text](<Screenshot from 2025-04-05 21-45-46.png>)
