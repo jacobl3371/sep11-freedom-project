@@ -1,5 +1,5 @@
 # Entry 3
-##### 3/13/2025
+##### 3/13/25
 
 ### Content
 I scrapped my pagepress multi-language route setup and created a new express repository that only uses vanilla i18n.
