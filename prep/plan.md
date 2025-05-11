@@ -20,12 +20,12 @@
 - [X] Design the frontend of the webpage (4/1)
 - [X] Test translation feature for the html select drop-down component (4/15)
   - [X] Look for bugs
-- [ ] Write the articles for the app (4/15)
 
 ### Beyond MVP
 
-- [ ] Add all the languages
-- [ ] Add more pages
+- [ ] Write the articles for the app (5/18)
+- [ ] Add all the languages (5/18)
+- [ ] Add more pages (5/18)
 
 
 
