@@ -17,16 +17,15 @@
 ####  MVP (Caleb)
 
 - [X] Finish learning enough React JS so that we can rebuild the frontend with react which will make the webpage load super fast! (3/15)
-- [ ] Design the frontend of the webpage (4/1)
-- [ ] Test translation feature for the html select drop-down component (4/15)
-  - [ ] Look for bugs
+- [X] Design the frontend of the webpage (4/1)
+- [X] Test translation feature for the html select drop-down component (4/15)
+  - [X] Look for bugs
 - [ ] Write the articles for the app (4/15)
-- [ ] Finish building the React frontend (4/19)
 
 ### Beyond MVP
 
-- [ ] Create a authentication page (Caleb) (4/3)
-- [ ] Design a fake database (Caleb) (4/3)
+- [] Add more languages
+- [] Add more pages
 
 
 
