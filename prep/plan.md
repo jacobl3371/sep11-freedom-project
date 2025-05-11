@@ -24,8 +24,8 @@
 
 ### Beyond MVP
 
-- [] Add more languages
-- [] Add more pages
+- [ ] Add more languages
+- [ ] Add more pages
 
 
 
