@@ -1,13 +1,13 @@
 # Presentation Plan
 
 ## Hook
-* Imagine you're a prospective immigrant looking to move to a new country. You need to access crucial resources to allow for your emmigration, but there are no resources available in your language! Fear no more, for [our immigration resource](https://immigration-resource.vercel.app/) offers a fully in-depth resoruce that can be translated into your langauge.
+* Imagine you're a prospective immigrant looking to move to a new country. You need to access crucial resources to allow for your emmigration, but there are no resources available in your language! Fear no more, for [our immigration resource](https://immigration-resource.vercel.app/) offers a fully in-depth web application to help you immigrate that can be translated into your langauge, and it automatically is! (*demo website with a VPN or Tor)*.
 
 ## Product
-* Our product is full of immigration resoucres, stories, legal help, and translation services to immigrants all over the globe.
+* Our product is full of helpful resources, stories, legal help, and translation services to immigrants all over the globe.
 
 ## Process
-* We built this app with a drea,. We wanted to create a more acessible furture for immigrants.
+* We built this app with a dream. We wanted to create a more acessible furture for immigrants.
 
   1. We started learning out tool. Jacob learned Express.js and I learned react.js
   2. We started to timker and build prototypes that will help us
