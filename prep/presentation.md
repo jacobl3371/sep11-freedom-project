@@ -10,13 +10,13 @@
 * We built this app with a dream. We wanted to create a more acessible furture for immigrants.
 
   1. We started learning out tool. Jacob learned Express.js and I learned react.js
-  2. We started to timker and build prototypes that will help us
-  3. We slowy built the app in VS code building componenets
-  4. Then we worked on the initl18.js `code snippits`
-  5. Finally we built it making the translation work
+  2. We started to tinker and build prototypes that will help us, such as the [mvp](https://github.com/jacobl3371/sep11-freedom-project/blob/main/tool/ip-immigration-app/backend/index.js) that Jacob made solely with Node and Express.
+  3. We slowy put together the application with React in VS code; building components
+  5. Finally we built it and made the translation work
 
 ## Conclusion
-* Takeaways: Problem decomposition- We had to work through many probelms and break them down step by step. Each probelm lead to another problem that needed to be solved to eliminate bugs. COmunication- We had to communicate a lot and building two seprate files then combining them was difficult. I had to `fetch()` Jacob's code and build the frontend up.
+* Takeaways: Problem decomposition- We had to work through many probelms and break them down step by step. Each probelm lead to another problem that needed to be solved to eliminate bugs.
+* Comunication- We had to communicate a lot and building two seprate files then combining them was difficult. I had to `fetch()` Jacob's code and build the frontend up.
 
 <!-- EXAMPLE
 
