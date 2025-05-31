@@ -4,7 +4,7 @@ by **Jacob Levit**
 ## Context
 I am a student at [HSTAT](https://www.hstat.org/) in the [Software Engineering Program](https://hstatsep.github.io/). The "Freedom Project" for SEP11 is a year-long project all about making something using JavaScript along with a third-party JS tool.
 
-For my project, I chose to independently study **Node and Express.js** and **React**, working with [Caleb Garcia](https://github.com/calebg4205), who has been learning React.js, in order to help me make [**a website that simulates an online immigration resource**](https://github.com/jacobl3371/ip-immigration-website).
+For my project, I chose to independently study **Node and Express.js**, and some **React**, working with [Caleb Garcia](https://github.com/calebg4205), who has been learning React.js, in order to help me make [**a website that simulates an online immigration resource**](https://github.com/jacobl3371/ip-immigration-website).
 
 ## Links
 
