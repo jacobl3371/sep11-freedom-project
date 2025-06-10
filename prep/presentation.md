@@ -1,16 +1,22 @@
 # Presentation Plan
 
 ## Hook
-* 
+* Imagine you're a prospective immigrant looking to move to a new country. You need to access crucial resources to allow for your emmigration, but there are no resources available in your language! Fear no more, for [our immigration resource](https://immigration-resource.vercel.app/) offers a fully in-depth web application to help you immigrate that can be translated into your langauge, and it automatically is! (*demo website with a VPN or Tor)*.
 
 ## Product
-* 
+* Our product is full of helpful resources, stories, legal help, and translation services to immigrants all over the globe.
 
 ## Process
-* 
+* We built this app with a dream. We wanted to create a more acessible furture for immigrants.
+
+  1. We started learning out tool. Jacob learned Express.js and I learned react.js
+  2. We started to tinker and build prototypes that will help us, such as the [mvp](https://github.com/jacobl3371/sep11-freedom-project/blob/main/tool/ip-immigration-app/backend/index.js) that Jacob made solely with Node and Express.
+  3. We slowy put together the application with React in VS code; building components
+  5. Finally we built it and made the translation work
 
 ## Conclusion
-* 
+* Takeaways: Problem decomposition- We had to work through many probelms and break them down step by step. Each probelm lead to another problem that needed to be solved to eliminate bugs.
+* Comunication- We had to communicate a lot and building two seprate files then combining them was difficult. I had to `fetch()` Jacob's code and build the frontend up.
 
 <!-- EXAMPLE
 
