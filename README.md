@@ -10,13 +10,13 @@ For my project, I chose to independently study **Node and Express.js** (and some
 
 [Product](https://ip-immigration-website-frontend.vercel.app/)
 
-[Presentation]()
+[Presentation](https://docs.google.com/presentation/d/1q1zGLP7vPFQL8w3w1T0zRHO0r3UDH2-i0hvRYW0ZQbo/)
 
 ## Implications
 ##### PROS
 * The website automatically translates to the user's language according to their region, making it convenient for individuals who want to immigrate from all over the world, as they most likely speak the language of the country they're in.
 * In the ladder case the resource is structured so that the built-in option to manually set the language is clearly available to the user by being visible on the top of the webpage.
-  
+
 ##### CONS
 * This automatic translation may be inconvenient to users of VPN's, proxies or Tor, who may have to utiluze those technologies to combat restrictive internet policies in their country that could prevent them from even accessing this resource at all. This is why more companies and web developers need to focus on user experience and accessibility.
 
